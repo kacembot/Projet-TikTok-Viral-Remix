@@ -1,8 +1,8 @@
 ﻿name: Deploy to Railway
 on:
   push:
-    branches:
-      - main
+    branches: [ main ]
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -13,12 +13,22 @@ jobs:
       - name: Install Railway CLI
         run: npm install -g @railway/cli
 
-      - name: Deploy to Railway
+      - name: Login to Railway (non-interactif)
         env:
           RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
         run: |
-          railway up \
-            --project a97464de-69ea-4e38-8a03-b27c0db9b8a0 \
+          # on passe le token en argument pour éviter l’interaction
+          railway login --token "$RAILWAY_TOKEN"
+
+      - name: Link to your Railway project
+        run: |
+          # on lie le dossier au projet, à l’environnement et au service
+          railway link \
+            --project ${{ secrets.RAILWAY_PROJECT_ID }} \
             --environment production \
-            --service Projet-TikTok-Viral-Remix \
-            --detach
+            --service Projet-TikTok-Viral-Remix
+
+      - name: Deploy to Railway
+        run: |
+          # on monte tout ce qui est dans docker-compose.yml
+          railway up --service all --detach
