@@ -1,5 +1,5 @@
 # .github/workflows/deploy.yml
-name: Deploy to Railway
+name: Déployer sur Railway
 
 on:
   push:
@@ -9,37 +9,21 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      # 1) On récupère le code
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      # 2) On déploie avec l’action Railway
-      - name: Railway deploy
-        name: Déployer sur Railway
-
-on:
-  push:
-    branches: [ main ]
-
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
-    steps:
-      # 1) Récupère le code du dépôt
+      # 1) On récupère le code du dépôt
       - name: Checkout du code
         uses: actions/checkout@v4
 
-      # 2) Installe Railway CLI
+      # 2) On installe Railway CLI
       - name: Installer Railway CLI
         run: npm install -g @railway/cli
 
-      # 3) Connexion non interactive à Railway
+      # 3) Connexion non-interactive à Railway avec le token
       - name: Connexion à Railway
         env:
           RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
         run: railway login --token "$RAILWAY_TOKEN"
 
-      # 4) Lie ce dossier à ton projet / env / service Railway
+      # 4) Lier ton dossier à ton projet/env/service Railway
       - name: Lier le projet Railway
         run: |
           railway link \
@@ -47,13 +31,6 @@ jobs:
             --environment production \
             --service Projet-TikTok-Viral-Remix
 
-      # 5) Monte tous les services définis dans docker-compose.yml
+      # 5) Déployer tous les services définis dans docker-compose.yml
       - name: Déployer les services
         run: railway up --service all --detach
-
-        with:
-          railwayToken: ${{ secrets.RAILWAY_TOKEN }}
-          projectId:    ${{ secrets.RAILWAY_PROJECT_ID }}
-          environment:  production         # ou staging selon ton setup
-          service:      Projet-TikTok-Viral-Remix
-          detach:       true               # pour lancer en background
