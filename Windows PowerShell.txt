@@ -1,0 +1,208 @@
+Windows PowerShell
+Copyright (C) Microsoft Corporation. Tous droits réservés.
+
+Installez la dernière version de PowerShell pour de nouvelles fonctionnalités et améliorations ! https://aka.ms/PSWindows
+
+PS C:\Users\melvi\Documents\Projet TikTok Viral Remix> # 1. Initialisation Git
+PS C:\Users\melvi\Documents\Projet TikTok Viral Remix> git init -b main
+Initialized empty Git repository in C:/Users/melvi/Documents/Projet TikTok Viral Remix/.git/
+PS C:\Users\melvi\Documents\Projet TikTok Viral Remix>
+PS C:\Users\melvi\Documents\Projet TikTok Viral Remix> # 2. Création du dossier n8n et déplacement des fichiers existants
+PS C:\Users\melvi\Documents\Projet TikTok Viral Remix> mkdir tiktok-workflow
+
+
+    Répertoire : C:\Users\melvi\Documents\Projet TikTok Viral Remix
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----        15/07/2025     12:04                tiktok-workflow
+
+
+PS C:\Users\melvi\Documents\Projet TikTok Viral Remix> mv Projet\ TikTok\ Viral\ Remix.json   tiktok-workflow/workflow.json
+Move-Item : Impossible de trouver un paramètre positionnel acceptant l'argument « Viral\ ».
+Au caractère Ligne:1 : 1
++ mv Projet\ TikTok\ Viral\ Remix.json   tiktok-workflow/workflow.json
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument : (:) [Move-Item], ParameterBindingException
+    + FullyQualifiedErrorId : PositionalParameterNotFound,Microsoft.PowerShell.Commands.MoveItemCommand
+
+PS C:\Users\melvi\Documents\Projet TikTok Viral Remix> mv Projet\ TikTok\ Viral\ Remix.md     README.md
+Move-Item : Impossible de trouver un paramètre positionnel acceptant l'argument « Viral\ ».
+Au caractère Ligne:1 : 1
++ mv Projet\ TikTok\ Viral\ Remix.md     README.md
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument : (:) [Move-Item], ParameterBindingException
+    + FullyQualifiedErrorId : PositionalParameterNotFound,Microsoft.PowerShell.Commands.MoveItemCommand
+
+PS C:\Users\melvi\Documents\Projet TikTok Viral Remix>
+PS C:\Users\melvi\Documents\Projet TikTok Viral Remix> # 3. Fichiers de base à compléter ensuite
+PS C:\Users\melvi\Documents\Projet TikTok Viral Remix> touch tiktok-workflow/{docker-compose.yml,Dockerfile,render.py}
+Au caractère Ligne:1 : 42
++ touch tiktok-workflow/{docker-compose.yml,Dockerfile,render.py}
++                                          ~
+Argument manquant dans la liste de paramètres.
+    + CategoryInfo          : ParserError: (:) [], ParentContainsErrorRecordException
+    + FullyQualifiedErrorId : MissingArgument
+
+PS C:\Users\melvi\Documents\Projet TikTok Viral Remix> cat << 'EOF' > tiktok-workflow/.env.example
+Au caractère Ligne:1 : 6
++ cat << 'EOF' > tiktok-workflow/.env.example
++      ~
+Spécification de fichier manquante après l’opérateur de redirection.
+Au caractère Ligne:1 : 5
++ cat << 'EOF' > tiktok-workflow/.env.example
++     ~
+L’opérateur « < » est réservé à une utilisation future.
+Au caractère Ligne:1 : 6
++ cat << 'EOF' > tiktok-workflow/.env.example
++      ~
+L’opérateur « < » est réservé à une utilisation future.
+    + CategoryInfo          : ParserError: (:) [], ParentContainsErrorRecordException
+    + FullyQualifiedErrorId : MissingFileSpecification
+
+PS C:\Users\melvi\Documents\Projet TikTok Viral Remix> DISCORD_BOT_TOKEN=
+DISCORD_BOT_TOKEN= : Le terme «DISCORD_BOT_TOKEN=» n'est pas reconnu comme nom d'applet de commande, fonction, fichier
+de script ou programme exécutable. Vérifiez l'orthographe du nom, ou si un chemin d'accès existe, vérifiez que le
+chemin d'accès est correct et réessayez.
+Au caractère Ligne:1 : 1
++ DISCORD_BOT_TOKEN=
++ ~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (DISCORD_BOT_TOKEN=:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS C:\Users\melvi\Documents\Projet TikTok Viral Remix> DISCORD_CHANNEL_ID=
+DISCORD_CHANNEL_ID= : Le terme «DISCORD_CHANNEL_ID=» n'est pas reconnu comme nom d'applet de commande, fonction,
+fichier de script ou programme exécutable. Vérifiez l'orthographe du nom, ou si un chemin d'accès existe, vérifiez que
+le chemin d'accès est correct et réessayez.
+Au caractère Ligne:1 : 1
++ DISCORD_CHANNEL_ID=
++ ~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (DISCORD_CHANNEL_ID=:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS C:\Users\melvi\Documents\Projet TikTok Viral Remix> TELEGRAM_BOT_TOKEN=
+TELEGRAM_BOT_TOKEN= : Le terme «TELEGRAM_BOT_TOKEN=» n'est pas reconnu comme nom d'applet de commande, fonction,
+fichier de script ou programme exécutable. Vérifiez l'orthographe du nom, ou si un chemin d'accès existe, vérifiez que
+le chemin d'accès est correct et réessayez.
+Au caractère Ligne:1 : 1
++ TELEGRAM_BOT_TOKEN=
++ ~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (TELEGRAM_BOT_TOKEN=:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS C:\Users\melvi\Documents\Projet TikTok Viral Remix> TELEGRAM_CHAT_ID=
+TELEGRAM_CHAT_ID= : Le terme «TELEGRAM_CHAT_ID=» n'est pas reconnu comme nom d'applet de commande, fonction, fichier
+de script ou programme exécutable. Vérifiez l'orthographe du nom, ou si un chemin d'accès existe, vérifiez que le
+chemin d'accès est correct et réessayez.
+Au caractère Ligne:1 : 1
++ TELEGRAM_CHAT_ID=
++ ~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (TELEGRAM_CHAT_ID=:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS C:\Users\melvi\Documents\Projet TikTok Viral Remix> TIKTOK_SCRAPER_API=https://api.tiktok-scraper.local
+TIKTOK_SCRAPER_API=https://api.tiktok-scraper.local : Le terme «TIKTOK_SCRAPER_API=https://api.tiktok-scraper.local»
+n'est pas reconnu comme nom d'applet de commande, fonction, fichier de script ou programme exécutable. Vérifiez
+l'orthographe du nom, ou si un chemin d'accès existe, vérifiez que le chemin d'accès est correct et réessayez.
+Au caractère Ligne:1 : 1
++ TIKTOK_SCRAPER_API=https://api.tiktok-scraper.local
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (TIKTOK_SCRAPER_...k-scraper.local:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS C:\Users\melvi\Documents\Projet TikTok Viral Remix> EOF
+EOF : Le terme «EOF» n'est pas reconnu comme nom d'applet de commande, fonction, fichier de script ou programme
+exécutable. Vérifiez l'orthographe du nom, ou si un chemin d'accès existe, vérifiez que le chemin d'accès est correct
+et réessayez.
+Au caractère Ligne:1 : 1
++ EOF
++ ~~~
+    + CategoryInfo          : ObjectNotFound: (EOF:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS C:\Users\melvi\Documents\Projet TikTok Viral Remix>
+PS C:\Users\melvi\Documents\Projet TikTok Viral Remix> # 4. .gitignore minimal
+PS C:\Users\melvi\Documents\Projet TikTok Viral Remix> cat << 'EOF' > .gitignore
+Au caractère Ligne:1 : 6
++ cat << 'EOF' > .gitignore
++      ~
+Spécification de fichier manquante après l’opérateur de redirection.
+Au caractère Ligne:1 : 5
++ cat << 'EOF' > .gitignore
++     ~
+L’opérateur « < » est réservé à une utilisation future.
+Au caractère Ligne:1 : 6
++ cat << 'EOF' > .gitignore
++      ~
+L’opérateur « < » est réservé à une utilisation future.
+    + CategoryInfo          : ParserError: (:) [], ParentContainsErrorRecordException
+    + FullyQualifiedErrorId : MissingFileSpecification
+
+PS C:\Users\melvi\Documents\Projet TikTok Viral Remix> .env
+.env : Le terme «.env» n'est pas reconnu comme nom d'applet de commande, fonction, fichier de script ou programme
+exécutable. Vérifiez l'orthographe du nom, ou si un chemin d'accès existe, vérifiez que le chemin d'accès est correct
+et réessayez.
+Au caractère Ligne:1 : 1
++ .env
++ ~~~~
+    + CategoryInfo          : ObjectNotFound: (.env:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS C:\Users\melvi\Documents\Projet TikTok Viral Remix> node_modules/
+node_modules/ : Le terme «node_modules/» n'est pas reconnu comme nom d'applet de commande, fonction, fichier de script
+ou programme exécutable. Vérifiez l'orthographe du nom, ou si un chemin d'accès existe, vérifiez que le chemin d'accès
+est correct et réessayez.
+Au caractère Ligne:1 : 1
++ node_modules/
++ ~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (node_modules/:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS C:\Users\melvi\Documents\Projet TikTok Viral Remix> __pycache__/
+__pycache__/ : Le terme «__pycache__/» n'est pas reconnu comme nom d'applet de commande, fonction, fichier de script
+ou programme exécutable. Vérifiez l'orthographe du nom, ou si un chemin d'accès existe, vérifiez que le chemin d'accès
+est correct et réessayez.
+Au caractère Ligne:1 : 1
++ __pycache__/
++ ~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (__pycache__/:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS C:\Users\melvi\Documents\Projet TikTok Viral Remix> *.pyc
+*.pyc : Le terme «*.pyc» n'est pas reconnu comme nom d'applet de commande, fonction, fichier de script ou programme
+exécutable. Vérifiez l'orthographe du nom, ou si un chemin d'accès existe, vérifiez que le chemin d'accès est correct
+et réessayez.
+Au caractère Ligne:1 : 1
++ *.pyc
++ ~~~~~
+    + CategoryInfo          : ObjectNotFound: (*.pyc:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS C:\Users\melvi\Documents\Projet TikTok Viral Remix> EOF
+EOF : Le terme «EOF» n'est pas reconnu comme nom d'applet de commande, fonction, fichier de script ou programme
+exécutable. Vérifiez l'orthographe du nom, ou si un chemin d'accès existe, vérifiez que le chemin d'accès est correct
+et réessayez.
+Au caractère Ligne:1 : 1
++ EOF
++ ~~~
+    + CategoryInfo          : ObjectNotFound: (EOF:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS C:\Users\melvi\Documents\Projet TikTok Viral Remix>
+PS C:\Users\melvi\Documents\Projet TikTok Viral Remix> # 5. Premier commit
+PS C:\Users\melvi\Documents\Projet TikTok Viral Remix> git add .
+PS C:\Users\melvi\Documents\Projet TikTok Viral Remix> git commit -m "chore: scaffold projet et importer workflow n8n existant"
+[main (root-commit) 1794a37] chore: scaffold projet et importer workflow n8n existant
+ 2 files changed, 232 insertions(+)
+ create mode 100644 Projet TikTok Viral Remix.json
+ create mode 100644 Projet TikTok Viral Remix.md
+PS C:\Users\melvi\Documents\Projet TikTok Viral Remix>
+
+
+
+
+
+
+
+
