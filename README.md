@@ -75,3 +75,6 @@ Chaque agent GPT spécialisé apporte une expertise pointue :
 - ULTRA_DATA_INSIGHTER : définit KPIs, met en place dashboard
 - ULTRA_PROMPT_ENGINEER : affine le prompt TikTok pour viralité max
 - ULTRA_DOC_ENGINE : maintien et mise à jour de la documentation
+
+<!-- ci: test workflow Railway -->
+
